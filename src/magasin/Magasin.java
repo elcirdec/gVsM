@@ -1,14 +1,12 @@
 package magasin;
 
-import java.util.Scanner;
-
 import personnage.Gentil;
 
 public class Magasin {
 	private String nomMagasin;
 	private int nbArticleMaxInventaire=10;
 	private int nbArticle=0;
-	private Article [] inventaire = new Article [nbArticleMaxInventaire]; //chaque magasin aura 10 article proposé max
+	private Article [] inventaire = new Article [nbArticleMaxInventaire]; //chaque magasin aura 10 article proposï¿½ max
 
 	public Magasin(String nomMagasin) {
 		this.nomMagasin = nomMagasin;	
@@ -30,22 +28,14 @@ public class Magasin {
 		}
 	}
 	
-	public void menuInventaire(Gentil gentil,Scanner scanner){
-		int res2;
+	public <T extends Magasin> void menuInventaire(Gentil gentil, T magasin, int resultat) {
 		if(nbArticle>0) {
-			afficherInventaire();
-			System.out.println("Vous avez "+gentil.getArgent()+" d'argent\n");
-
-			do {
-				System.out.println("Veuillez choisir un nombre entre 0 et "+(nbArticle-1)+ " pour acheter un article ou \nchoisissez "+nbArticle+" pour quitter le menu d'achat des articles de "+this.nomMagasin+" \n");
-				res2=scanner.nextInt();
-			}while(res2<0 || res2>nbArticle+1);
-			if(res2==nbArticle) {
+			if(resultat==nbArticle) {
 				System.out.println("Vous quittez le menu d'achat de "+this.nomMagasin+"\n");
 			}else {
-				if(gentil.isSolvable(inventaire[res2].getPrix())) {
-					gentil.perdreArgent(inventaire[res2].getPrix());
-					gentil.ajouterArticle(inventaire[res2],scanner);
+				if(gentil.isSolvable(inventaire[resultat].getPrix())) {
+					gentil.perdreArgent(inventaire[resultat].getPrix());
+					gentil.ajouterArticle(inventaire[resultat]);		////????
 				}else {
 					System.out.println("Vous quittez le menu d'achat de "+this.nomMagasin+" car vous etes trop pauvre\n");
 				}
@@ -54,9 +44,17 @@ public class Magasin {
 
 	}
 	
+
 	//getter
 	public Article[] getInventaire() {
 		return inventaire;
 	}
 	
+	public int getNbArticle() {
+		return nbArticle;
+	}
+
+	public String getNomMagasin() {
+		return nomMagasin;
+	}
 }

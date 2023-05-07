@@ -22,9 +22,9 @@ public class Gentil extends Humain{
 	public boolean fuire(int chanceDeFuite) {	
 		int valeurDes = ran.nextInt(chanceDeFuite);
 		if(valeurDes==0) {
-			System.out.println("Votre fuite a réussit\n");
+			System.out.println("Votre fuite a rï¿½ussit\n");
 		}else {
-			System.out.println("Votre fuite a échouer\n");
+			System.out.println("Votre fuite a ï¿½chouer\n");
 		}
 		return (valeurDes==0);
 	}
@@ -40,18 +40,12 @@ public class Gentil extends Humain{
 		}
 	}
 
-	public <T extends Antagoniste> boolean seBattre(T adversere,Scanner scanner) {
+	public <T extends Antagoniste> boolean seBattre(T adversere, int resultat) {
 		boolean fuire=false;
-		int res2;
 		boolean gentilEstIlMort=false;
 		int mechancete=adversere.getMechancete();
-		do {
-			System.out.println(adversere.getNom()+" est un mechant de mechanceté "+adversere.getMechancete());
-			System.out.println("Vous avez une chance sur "+mechancete+" de réussir a fuire\n");
-			System.out.println("Voulez vous fuire?\n 1 - Oui 2 - Non\n");
-			res2=scanner.nextInt();
-		}while(res2<1 || res2>2);
-		if(res2==1) {
+
+		if(resultat==1) {
 			fuire=this.fuire(mechancete);
 		}		
 		while((this.estVivant() && adversere.estVivant()) && !fuire) {
@@ -62,7 +56,7 @@ public class Gentil extends Humain{
 		}
 
 		if( !(adversere.estVivant()) ) {	//si l'adversere est mort
-			System.out.println("Vous avez gagné "+adversere.getNom()+" le mechant a perdu\n");
+			System.out.println("Vous avez gagnï¿½ "+adversere.getNom()+" le mechant a perdu\n");
 		}else if( !(this.estVivant()) ){
 			System.out.println("Vous etes mort");
 			gentilEstIlMort=true;					
@@ -70,41 +64,75 @@ public class Gentil extends Humain{
 		return gentilEstIlMort;
 	}
 	////////////////////// GESTION classe interne ///////////////////////
-	public void donnerMenuUtiliserArticle(Scanner scanner) {
-		sacADos.menuUtiliserArticle(scanner);
+	public void donnerMenuUtiliserArticle(int res) {
+		sacADos.menuUtiliserArticle(res);
+	}
+	public void afficherSacADos() {
+		sacADos.afficherSacADos();
 	}
 	public boolean isArmeEquipper() {
 		return sacADos.armeEquipper();
 	}
-	public void ajouterArticle(Article article,Scanner scanner) {
+
+	public boolean isAjouterArticlePossible() {
 		boolean armeEquiper=this.isArmeEquipper();
 		int nbArticle=sacADos.getNbArticle();
 		int nbArticleMax=sacADos.getNbArticleMax();
+		return (nbArticle<nbArticleMax);
+	}
+
+	public boolean ajouterArticle(Article article) {
+		boolean armeEquiper=this.isArmeEquipper();
+		int nbArticle=sacADos.getNbArticle();
+		int nbArticleMax=sacADos.getNbArticleMax();
+
 		if(nbArticle<nbArticleMax) {
-			sacADos.sacADosNonPlein(article,scanner,armeEquiper);
+			sacADos.sacADosNonPlein(article,armeEquiper);
 		}else {
-			sacADos.sacADosPlein(article, scanner, armeEquiper);
+			sacADos.sacADosPlein(article, armeEquiper);
 		}
 	}
-	
+	public void remplacerArmeSacADos(Article article, int resultat) {
+		sacADos.remplacerArme(article, resultat);
+	}
+
+	public void ajouterArticleSacADosNonPlein(Article article) {
+		sacADos.ajouterArticleSacADosNonPlein(article);
+	}
+
+	public void ajouterArticleSacADosPlein(Article article, int res) {
+		sacADos.ajouterArticleSacADosPlein(article,res);
+	}
+
+	public int emplacementDeLArmeSacADos() {
+		return sacADos.emplacementDeLArme();
+	}
+	public Article getArticleSacADos(int emplacement) {
+		return sacADos.getArticle(emplacement);
+	}
+
+	public int getNbArticleSacADos() {
+		return sacADos.getNbArticle();
+	}
+
 	////////////////////// Classe Interne ///////////////////////
 	private static class SacADos {
-		
+
 		private Gentil gentil;
 		private static final int nbArticleMax=10;
 		private int nbArticle=0;
 		private String nomArmeEquiper;
 		private Article[] sacADos=new Article[nbArticleMax];
-		
-		
+
+
 		private SacADos(Gentil gentil) {
 			this.gentil = gentil;
 		}
-	
+
 
 		public void afficherSacADos() {
 			for(int i=0;i<nbArticle;i++) {
-				System.out.println(i+" - "+sacADos[i].getNom()+" ( type = "+sacADos[i].getType()+" utilisé = "+sacADos[i].isArticleDejaUtiliser()+" )\n");
+				System.out.println(i+" - "+sacADos[i].getNom()+" ( type = "+sacADos[i].getType()+" utilisï¿½ = "+sacADos[i].isArticleDejaUtiliser()+" )\n");
 			}
 		}
 
@@ -124,23 +152,16 @@ public class Gentil extends Humain{
 			int emplacementDeLArme=0;
 			for(int i=0;i<nbArticle;i++) {
 				if(sacADos[i].getType().equals("arme")) {
-					System.out.println(i+" - "+sacADos[i].getNom()+" ( type = "+sacADos[i].getType()+" utilisé = "+sacADos[i].isArticleDejaUtiliser()+" )\n");
+					System.out.println(i+" - "+sacADos[i].getNom()+" ( type = "+sacADos[i].getType()+" utilisï¿½ = "+sacADos[i].isArticleDejaUtiliser()+" )\n");
 					emplacementDeLArme=i;
 				}							
 			}
 			return emplacementDeLArme;
 		}
 
-		public void remplacerArme(Article article,Scanner scanner) {
+		public void remplacerArme(Article article, int resultat) {
 			int emplacementDeLArme=emplacementDeLArme();
-			int res;
-			do {
-				System.out.println("Taper 0 pour abandonner l'article acheté ou"
-						+ "\nTaper "+emplacementDeLArme+" pour remplacer votre arme actuelle "+sacADos[emplacementDeLArme].getNom()+" par la nouvelle\n"+article.getNom()+"\n");
-				res=scanner.nextInt();
-			}while(res!=0 && res!=emplacementDeLArme);
-
-			if(res!=0){	
+			if(resultat!=0){	
 				sacADos[emplacementDeLArme]=article;
 				gentil.parler("J'ajoute "+article.getNom()+" a mon inventaire\n");
 			}else {
@@ -148,51 +169,22 @@ public class Gentil extends Humain{
 			}
 		}
 
-		public void sacADosNonPlein(Article article,Scanner scanner,Boolean armeEquiper) {
-			if(Boolean.TRUE.equals(armeEquiper)) {	// on ne peut pas avoir 2 armes
-				System.out.println("Vous ne pouvez pas avoir plus d'une arme");
-				remplacerArme(article,scanner);
-			}else {
-				sacADos[nbArticle]=article;
-				nbArticle++;
-				gentil.parler("J'ajoute "+article.getNom()+" a mon inventaire\n");
-			}
+		public void ajouterArticleSacADosNonPlein(Article article) {
+			sacADos[nbArticle]=article;
+			nbArticle++;
+			gentil.parler("J'ajoute "+article.getNom()+" a mon inventaire\n");
 		}
 
-		public void sacADosPlein(Article article,Scanner scanner,Boolean armeEquiper) {
-			int res;
-			if(Boolean.TRUE.equals(armeEquiper)) {	// on ne peut pas avoir 2 armes
-				System.out.println("Vous ne pouvez pas avoir plus d'une arme");
-				System.out.println("Votre sac a dos est plein\n");
-				remplacerArme(article,scanner);
-			}else {
-				do {
-					afficherSacADos();	
-					System.out.println("Votre sac a dos est plein\nTaper "+nbArticle+" pour abandonner l'article acheté ou"
-							+ "\nTaper le numero de l'article que vous voulez supprimer pour ranger "+article.getNom()+"\n");
-					res=scanner.nextInt();
-				}while(res<0 && res>nbArticle+1);	
+		public void ajouterArticleSacADosPlein(Article article, int res) {
 
-				if(res!=(nbArticle)){	
-					sacADos[res]=article;
-					gentil.parler("J'ajoute "+article.getNom()+" a mon inventaire\n");
-				}else {
-					gentil.parler(PASDECHANCE);
-				}
+			sacADos[res]=article;
+			gentil.parler("J'ajoute "+article.getNom()+" a mon inventaire\n");
 
-			}
 		}
 
-		public void menuUtiliserArticle(Scanner scanner) {		
-			int res;
+		public void menuUtiliserArticle(int res) {		
 			if(nbArticle>0) {
-				afficherSacADos();
 
-				do {
-					System.out.println("Veuillez choisir un nombre entre 0 et "+(nbArticle-1)+ " pour utiliser un article (non utiliser) ou \n choisissez "+nbArticle+" pour quitter le menu d'utilsation des articles \n");
-					res=scanner.nextInt();
-
-				}while(res<0 || res>nbArticle+1|| sacADos[res].isArticleDejaUtiliser());
 				if(res==(nbArticle)) {
 					System.out.println("Vous quittez le menu des articles");
 				}else {
@@ -220,13 +212,17 @@ public class Gentil extends Humain{
 		public String getNomArmeEquiper() {
 			return nomArmeEquiper;
 		}
-		
+
 		public int getNbArticleMax() {
 			return nbArticleMax;
 		}
 
 		public int getNbArticle() {
 			return nbArticle;
+		}
+
+		public Article getArticle(int emplacement) {
+			return sacADos[emplacement];
 		}
 
 	}
