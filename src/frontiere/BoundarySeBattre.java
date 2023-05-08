@@ -7,11 +7,7 @@ import personnage.Antagoniste;
 import personnage.Gentil;
 
 public class BoundarySeBattre {
-	private ControleurSeBattre controleurSeBattre;
-
-	public BoundarySeBattre(ControleurSeBattre controleurSeBattre) {
-		this.controleurSeBattre = controleurSeBattre;
-	}
+	private ControleurSeBattre controleurSeBattre = new ControleurSeBattre();
 	
 	public  <T extends Antagoniste> boolean seBattre(Gentil gentil, T adversere,Scanner scanner) {
 		int mechancete=adversere.getMechancete();

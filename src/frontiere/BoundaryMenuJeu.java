@@ -15,9 +15,9 @@ public class BoundaryMenuJeu {
 		private Armurerie armurerie = new Armurerie("Chez le bon armurier");
 		
 		//a garder
-		private BoundarySeBattre boundarySeBattre;
-		private BoundaryAcheterProduit boundaryAcheterProduit;
-		private BoundarySacADos boundarySacADos;
+		private BoundarySeBattre boundarySeBattre = new BoundarySeBattre();
+		private BoundaryAcheterProduit boundaryAcheterProduit = new BoundaryAcheterProduit();
+		private BoundarySacADos boundarySacADos = new BoundarySacADos();
 		
 		public boolean menuJeu(Scanner scanner){
 			int res=0;
@@ -71,7 +71,7 @@ public class BoundaryMenuJeu {
 		}
 
 		public static void main(String[] args) {
-			JeuGentilVSMechant jeu = new JeuGentilVSMechant();
+			BoundaryMenuJeu jeu = new BoundaryMenuJeu();
 			jeu.jouer();
 		}
 

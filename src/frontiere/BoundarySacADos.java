@@ -7,7 +7,7 @@ import magasin.Article;
 import personnage.Gentil;
 
 public class BoundarySacADos {
-	ControleurSacADos controleurSacADos;
+	ControleurSacADos controleurSacADos = new ControleurSacADos();
 
 	public void sacADosNonPlein(Article article,Gentil gentil, Scanner scanner) {
 		boolean isArmeEquipper=controleurSacADos.isArmeEquipper(gentil);
@@ -47,14 +47,21 @@ public class BoundarySacADos {
 	public void menuUtiliserArticle(Scanner scanner,Gentil gentil) {
 		controleurSacADos.afficherSacADos(gentil);
 		int nbArticle=controleurSacADos.getNbAtricle(gentil);
+		boolean isArticleUtiliser;
+		
 		int res;
 		if(nbArticle>0) {
 			do {
+				isArticleUtiliser=false;
 				System.out.println("Veuillez choisir un nombre entre 0 et "+(nbArticle-1)+ " pour utiliser un article (non utiliser) ou \n choisissez "+nbArticle+" pour quitter le menu d'utilsation des articles \n");
 				res=scanner.nextInt();
-
-			}while(res<0 || res>nbArticle+1|| controleurSacADos.getArticle(gentil,res).isArticleDejaUtiliser());
+				if(controleurSacADos.getArticle(gentil, res) instanceof Article) {
+					isArticleUtiliser=controleurSacADos.getArticle(gentil,res).isArticleDejaUtiliser();
+				}
+			}while(res<0 || res>nbArticle+1|| isArticleUtiliser);
 			controleurSacADos.MenuUtiliserArticle(gentil, res);
+		}else {
+			System.out.println("Pas d'article dans le Sac a dos");
 		}
 		
 	}

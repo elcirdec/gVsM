@@ -1,4 +1,9 @@
+/.classpath
+/.project
 /controleur/
-/personnage/
+/dialogue/
 /frontiere/
 /magasin/
+/personnage/
+/presentation/
+/tests/

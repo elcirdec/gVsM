@@ -1,8 +1,6 @@
 package personnage;
 
 import java.util.Random;
-import java.util.Scanner;
-
 import magasin.Article;
 
 public class Gentil extends Humain{
@@ -75,23 +73,11 @@ public class Gentil extends Humain{
 	}
 
 	public boolean isAjouterArticlePossible() {
-		boolean armeEquiper=this.isArmeEquipper();
 		int nbArticle=sacADos.getNbArticle();
 		int nbArticleMax=sacADos.getNbArticleMax();
 		return (nbArticle<nbArticleMax);
 	}
 
-	public boolean ajouterArticle(Article article) {
-		boolean armeEquiper=this.isArmeEquipper();
-		int nbArticle=sacADos.getNbArticle();
-		int nbArticleMax=sacADos.getNbArticleMax();
-
-		if(nbArticle<nbArticleMax) {
-			sacADos.sacADosNonPlein(article,armeEquiper);
-		}else {
-			sacADos.sacADosPlein(article, armeEquiper);
-		}
-	}
 	public void remplacerArmeSacADos(Article article, int resultat) {
 		sacADos.remplacerArme(article, resultat);
 	}
@@ -228,8 +214,8 @@ public class Gentil extends Humain{
 	}
 
 
-	public boolean isSolvable(int debit) {
-		return (this.getArgent()-debit>=0);
+	public boolean isSolvable(Article article) {
+		return (this.getArgent()-article.getPrix()>=0);
 	}
 
 	public int getAttaque() {

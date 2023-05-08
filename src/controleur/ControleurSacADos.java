@@ -16,6 +16,7 @@ public class ControleurSacADos {
 	public boolean isArmeEquipper(Gentil gentil) {
 		return gentil.isArmeEquipper();
 	}
+	
 	public int getNbAtricle(Gentil gentil) {
 		return gentil.getNbArticleSacADos();
 	}
@@ -23,9 +24,11 @@ public class ControleurSacADos {
 	public void sacADosNonPlein(Article article,Gentil gentil) {
 		gentil.ajouterArticleSacADosNonPlein(article);
 	}
+	
 	public void sacADosPlein(Article article,Gentil gentil,int res) {
 		gentil.ajouterArticleSacADosPlein(article,res);
 	}
+	
 	public void remplacerArme(Article article,Gentil gentil, int resultat) {
 		gentil.remplacerArmeSacADos(article, resultat);
 	}
