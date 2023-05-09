@@ -61,13 +61,16 @@ public class Gentil extends Humain{
 		}
 		return gentilEstIlMort;
 	}
+	
 	////////////////////// GESTION classe interne ///////////////////////
 	public void donnerMenuUtiliserArticle(int res) {
 		sacADos.menuUtiliserArticle(res);
 	}
+	
 	public void afficherSacADos() {
 		sacADos.afficherSacADos();
 	}
+	
 	public boolean isArmeEquipper() {
 		return sacADos.armeEquipper();
 	}
@@ -93,6 +96,7 @@ public class Gentil extends Humain{
 	public int emplacementDeLArmeSacADos() {
 		return sacADos.emplacementDeLArme();
 	}
+	
 	public Article getArticleSacADos(int emplacement) {
 		return sacADos.getArticle(emplacement);
 	}
@@ -147,7 +151,7 @@ public class Gentil extends Humain{
 
 		public void remplacerArme(Article article, int resultat) {
 			int emplacementDeLArme=emplacementDeLArme();
-			if(resultat!=0){	
+			if(resultat==emplacementDeLArme){	
 				sacADos[emplacementDeLArme]=article;
 				gentil.parler("J'ajoute "+article.getNom()+" a mon inventaire\n");
 			}else {

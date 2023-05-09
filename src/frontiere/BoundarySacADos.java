@@ -66,16 +66,19 @@ public class BoundarySacADos {
 		
 	}
 
-
+//	tester 2 armes  ok
+//	tester sac a dos plein  OK
+//	tester sebattre  OK
+	
 	public void remplacerArme(Article article, Gentil gentil ,Scanner scanner) {
 		int res;
 		int emplacementDeLArme=controleurSacADos.emplacementDeLArme(gentil);
 		do {
-			System.out.println("Taper 0 pour abandonner l'article achet� ou"
-					+ "\nTaper "+emplacementDeLArme+" pour remplacer votre arme actuelle "+controleurSacADos.getArticle(gentil,emplacementDeLArme).getNom()+" par la nouvelle\n"+article.getNom()+"\n");
+			System.out.println("Taper "+ (emplacementDeLArme+1) +" pour abandonner l'article achet� ou"
+					+ "\nTaper "+emplacementDeLArme+" pour remplacer votre arme actuelle "+controleurSacADos.getArticle(gentil,emplacementDeLArme).getNom()+" par la nouvelle arme\n"+article.getNom()+"\n");
 			res=scanner.nextInt();
-		}while(res!=0 && res!=emplacementDeLArme);
-
+		}while(res!=emplacementDeLArme+1 && res!=emplacementDeLArme);
+		controleurSacADos.remplacerArme(article, gentil, res);
 
 	}
 
