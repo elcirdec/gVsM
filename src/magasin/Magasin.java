@@ -43,6 +43,7 @@ public class Magasin {
 
 	//getter
 	public Article getArticle(int emplacementArticle) {
+		System.out.println(inventaire[emplacementArticle].getNom());
 		return inventaire[emplacementArticle];
 	}
 

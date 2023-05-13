@@ -4,7 +4,7 @@ public class Taverne extends Magasin{
 
 	private static final String FOOD = "nourriture/boisson";	
 	public Taverne(String nomMagasin) {
-		super(nomMagasin);	
+		super(nomMagasin);	 
 		initialisationMagasinTaverne();
 	}
 

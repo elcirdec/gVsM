@@ -61,16 +61,16 @@ public class Gentil extends Humain{
 		}
 		return gentilEstIlMort;
 	}
-	
+
 	////////////////////// GESTION classe interne ///////////////////////
 	public void donnerMenuUtiliserArticle(int res) {
 		sacADos.menuUtiliserArticle(res);
 	}
-	
+
 	public void afficherSacADos() {
 		sacADos.afficherSacADos();
 	}
-	
+
 	public boolean isArmeEquipper() {
 		return sacADos.armeEquipper();
 	}
@@ -96,7 +96,7 @@ public class Gentil extends Humain{
 	public int emplacementDeLArmeSacADos() {
 		return sacADos.emplacementDeLArme();
 	}
-	
+
 	public Article getArticleSacADos(int emplacement) {
 		return sacADos.getArticle(emplacement);
 	}
@@ -130,7 +130,7 @@ public class Gentil extends Humain{
 			String type;
 			for(int i=0;i<nbArticle;i++) {
 				type=sacADos[i].getType();
-				if(type.equals("arme")) {
+				if(type.equals("arme") && sacADos[i].isArticleDejaUtiliser()) {
 					nomArmeEquiper=sacADos[i].getNom();
 					return true;
 				}
@@ -151,9 +151,10 @@ public class Gentil extends Humain{
 
 		public void remplacerArme(Article article, int resultat) {
 			int emplacementDeLArme=emplacementDeLArme();
-			if(resultat==emplacementDeLArme){	
+			article.setArticleDejaUtiliser(true);
+			if(resultat==1){	
 				sacADos[emplacementDeLArme]=article;
-				gentil.parler("J'ajoute "+article.getNom()+" a mon inventaire\n");
+				gentil.parler("Mon arme est desormais "+article.getNom()+"\n");
 			}else {
 				gentil.parler(PASDECHANCE);
 			}
@@ -186,7 +187,7 @@ public class Gentil extends Humain{
 						break;
 					case "potion","arme":
 						gentil.attaque=sacADos[res].effetArticle(gentil);
-					System.out.println("Votre attaque passe a "+gentil.attaque);
+						System.out.println("Votre attaque passe a "+gentil.attaque);
 					break;
 					default:
 						System.out.println("Erreur switch article");

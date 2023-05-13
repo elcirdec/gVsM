@@ -28,7 +28,6 @@ public class BoundaryAcheterProduit {
 				System.out.println("Vous quittez le menu d'achat de "+nomMagasin+"\n");
 			}else {
 				Article article=controleurAcheterProduit.getArticle(magasin, resultat);
-				System.out.println(resultat);
 
 				if(gentil.isSolvable(article)){						
 					if(controleurAcheterProduit.isAjouterArticlePossible(gentil)) {

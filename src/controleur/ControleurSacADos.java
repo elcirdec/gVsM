@@ -7,9 +7,9 @@ public class ControleurSacADos {
 
 	public void afficherSacADos(Gentil gentil) {
 		gentil.afficherSacADos();
-	}
+	} 
 	
-	public void MenuUtiliserArticle(Gentil gentil, int res){
+	public void menuUtiliserArticle(Gentil gentil, int res){
 		gentil.donnerMenuUtiliserArticle(res);
 	}
 	
@@ -22,14 +22,20 @@ public class ControleurSacADos {
 	}
 	
 	public void sacADosNonPlein(Article article,Gentil gentil) {
+		if((article.getType()=="arme")) {
+			article.setArticleDejaUtiliser(true);
+		}
 		gentil.ajouterArticleSacADosNonPlein(article);
 	}
 	
 	public void sacADosPlein(Article article,Gentil gentil,int res) {
+		if((article.getType()=="arme")) {
+			article.setArticleDejaUtiliser(true);
+		}
 		gentil.ajouterArticleSacADosPlein(article,res);
 	}
 	
-	public void remplacerArme(Article article,Gentil gentil, int resultat) {
+	public void remplacerArme(Article article, Gentil gentil, int resultat) {
 		gentil.remplacerArmeSacADos(article, resultat);
 	}
 	

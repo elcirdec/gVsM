@@ -11,10 +11,11 @@ public class BoundarySacADos {
 
 	public void sacADosNonPlein(Article article,Gentil gentil, Scanner scanner) {
 		boolean isArmeEquipper=controleurSacADos.isArmeEquipper(gentil);
-		if(isArmeEquipper) {	// on ne peut pas avoir 2 armes
+		if(isArmeEquipper && (article.getType()=="arme")) {	// on ne peut pas avoir 2 armes
 			System.out.println("Vous ne pouvez pas avoir plus d'une arme");
 			remplacerArme(article, gentil, scanner);
 		}else {
+
 			controleurSacADos.sacADosNonPlein(article, gentil);
 		}
 	}
@@ -23,7 +24,7 @@ public class BoundarySacADos {
 		int res;
 		int nbArticle=controleurSacADos.getNbAtricle(gentil);
 		boolean isArmeEquipper=controleurSacADos.isArmeEquipper(gentil);
-		if(isArmeEquipper) {	// on ne peut pas avoir 2 armes
+		if(isArmeEquipper && (article.getType()=="arme")) {	// on ne peut pas avoir 2 armes
 			System.out.println("Vous ne pouvez pas avoir plus d'une arme");
 			System.out.println("Votre sac a dos est plein\n");
 			remplacerArme(article, gentil, scanner);
@@ -36,6 +37,7 @@ public class BoundarySacADos {
 			}while(res<0 && res>nbArticle+1);	
 
 			if(res!=nbArticle){	
+
 				controleurSacADos.sacADosPlein(article, gentil, res);
 			}else {
 				gentil.parler("Pas de chance j'ai acheter cet article pour rien\n");
@@ -59,25 +61,21 @@ public class BoundarySacADos {
 					isArticleUtiliser=controleurSacADos.getArticle(gentil,res).isArticleDejaUtiliser();
 				}
 			}while(res<0 || res>nbArticle+1|| isArticleUtiliser);
-			controleurSacADos.MenuUtiliserArticle(gentil, res);
+			controleurSacADos.menuUtiliserArticle(gentil, res);
 		}else {
 			System.out.println("Pas d'article dans le Sac a dos");
 		}
 		
 	}
 
-//	tester 2 armes  ok
-//	tester sac a dos plein  OK
-//	tester sebattre  OK
-	
 	public void remplacerArme(Article article, Gentil gentil ,Scanner scanner) {
 		int res;
 		int emplacementDeLArme=controleurSacADos.emplacementDeLArme(gentil);
 		do {
-			System.out.println("Taper "+ (emplacementDeLArme+1) +" pour abandonner l'article achet� ou"
-					+ "\nTaper "+emplacementDeLArme+" pour remplacer votre arme actuelle "+controleurSacADos.getArticle(gentil,emplacementDeLArme).getNom()+" par la nouvelle arme\n"+article.getNom()+"\n");
+			System.out.println("Voulez vous abandonner votre arme "+controleurSacADos.getArticle(gentil,emplacementDeLArme).getNom()+" par la nouvelle arme\n"+article.getNom()+"\n1-Oui 2-Non");
 			res=scanner.nextInt();
-		}while(res!=emplacementDeLArme+1 && res!=emplacementDeLArme);
+		}while(res!=1 && res!=2);
+		
 		controleurSacADos.remplacerArme(article, gentil, res);
 
 	}

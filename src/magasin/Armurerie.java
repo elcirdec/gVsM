@@ -22,5 +22,5 @@ public class Armurerie extends Magasin{
 		this.ajouterArticleInventaire(article4);
 	}
 
-
+ 
 }

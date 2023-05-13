@@ -25,7 +25,7 @@ public class Article {
 			break;
 		case "nourriture/boisson":
 			nouvelleStat=effet;
-			break;
+			break; 
 		case "potion":
 			nouvelleStat=gentil.getAttaque()*effet;
 			break;
@@ -51,4 +51,9 @@ public class Article {
 		return prix;
 	}
 
+	public void setArticleDejaUtiliser(boolean articleDejaUtiliser) {
+		this.articleDejaUtiliser = articleDejaUtiliser;
+	}
+
+	
 }

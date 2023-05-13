@@ -8,7 +8,7 @@ import personnage.*;
 
 public class BoundaryMenuJeu {
 		private Random ran = new Random();
-		//a supprimer
+
 		private Gentil gentil = new Gentil("Le Gentil", 1000, 1000, 50);
 		private Mechant mechant = new Mechant("Le mechant", 1000, 2);
 		private Monstre monstre = new Monstre("Le monstre", 500, 1);
@@ -16,7 +16,7 @@ public class BoundaryMenuJeu {
 		private Taverne taverne = new Taverne("Chez le bon tavernier");
 		private Armurerie armurerie = new Armurerie("Chez le bon armurier");
 		
-		//a garder
+
 		private BoundarySeBattre boundarySeBattre = new BoundarySeBattre();
 		private BoundaryAcheterProduit boundaryAcheterProduit = new BoundaryAcheterProduit();
 		private BoundarySacADos boundarySacADos = new BoundarySacADos();
