@@ -73,19 +73,19 @@ public class JFrameMenuArmurerie extends JFrame {
 		JLabel lblNewLabel = new JLabel("Veuillez choisir un nombre entre 0 et 4 ou 5 pour quitter le Menu :");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
-		JLabel lblTravailler = new JLabel("0 - Banane ( type = arme | prix = 100 )");
+		JLabel lblTravailler = new JLabel("0 - Banane ( effet=+50 Atq | prix = 100 )");
 		lblTravailler.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
-		JLabel lblTravailler_1 = new JLabel("1 - Poêle en inox ( type = arme | prix = 200 )");
+		JLabel lblTravailler_1 = new JLabel("1 - Poêle en inox ( effet=+150 Atq | prix = 200 )");
 		lblTravailler_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
-		JLabel lblTravailler_2 = new JLabel("2 - Sandale ( type = arme | prix = 500 )");
+		JLabel lblTravailler_2 = new JLabel("2 - Sandale ( effet=+300 Atq | prix = 500 )");
 		lblTravailler_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
-		JLabel lblAller_1 = new JLabel("3 - Couteau ( type = arme | prix = 1000 )");
+		JLabel lblAller_1 = new JLabel("3 - Couteau ( effet=+500 Atq | prix = 1000 )");
 		lblAller_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
-		JLabel lblAller = new JLabel("4 - Katana ( type = arme | prix = 5000 )");
+		JLabel lblAller = new JLabel("4 - Katana ( effet=+1000 Atq | prix = 5000 )");
 		lblAller.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
 		JLabel lblQuitter = new JLabel("5 - Quitter le Menu");
@@ -125,13 +125,14 @@ public class JFrameMenuArmurerie extends JFrame {
 						.addGroup(gl_panel.createSequentialGroup()
 							.addGap(29)
 							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblTravailler_2, GroupLayout.PREFERRED_SIZE, 467, GroupLayout.PREFERRED_SIZE)
 								.addGroup(gl_panel.createSequentialGroup()
-									.addGroup(gl_panel.createParallelGroup(Alignment.LEADING, false)
-										.addComponent(lblQuitter, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-										.addComponent(lblTravailler, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-										.addGroup(gl_panel.createSequentialGroup()
-											.addComponent(lblAller, GroupLayout.PREFERRED_SIZE, 377, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.RELATED)))
+									.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
+										.addComponent(lblTravailler_1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
+										.addComponent(lblQuitter, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
+										.addComponent(lblTravailler, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
+										.addComponent(lblAller, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
+										.addComponent(lblAller_1, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 405, GroupLayout.PREFERRED_SIZE))
 									.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 										.addGroup(gl_panel.createSequentialGroup()
 											.addPreferredGap(ComponentPlacement.RELATED)
@@ -148,12 +149,8 @@ public class JFrameMenuArmurerie extends JFrame {
 											.addGap(193)
 											.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 												.addComponent(lblNewLabelArgent, GroupLayout.PREFERRED_SIZE, 142, GroupLayout.PREFERRED_SIZE)
-												.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 162, GroupLayout.PREFERRED_SIZE)))))
-								.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
-									.addComponent(lblTravailler_2, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-									.addComponent(lblTravailler_1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE))
-								.addComponent(lblAller_1, GroupLayout.PREFERRED_SIZE, 405, GroupLayout.PREFERRED_SIZE))))
-					.addContainerGap(51, Short.MAX_VALUE))
+												.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 162, GroupLayout.PREFERRED_SIZE))))))))
+					.addGap(51))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -169,26 +166,23 @@ public class JFrameMenuArmurerie extends JFrame {
 						.addComponent(lblNewLabelArgent, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblTravailler_1))
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+					.addComponent(lblTravailler_2, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
 						.addGroup(gl_panel.createSequentialGroup()
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(lblTravailler_2, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(lblAller_1, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(lblAller)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(lblQuitter))
-						.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
-							.addGap(109)
-							.addComponent(lblNewLabelErrorChoixMenu, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))
+						.addComponent(lblNewLabelErrorChoixMenu, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(lblNewLabel_1)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(textFieldChoixMenu, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(40, Short.MAX_VALUE))
+					.addContainerGap(45, Short.MAX_VALUE))
 		);
 		panel.setLayout(gl_panel);
 		contentPane.setLayout(gl_contentPane);

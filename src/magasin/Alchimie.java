@@ -21,17 +21,5 @@ public class Alchimie extends Magasin{
 		this.ajouterArticleInventaire(article4);
 	}
 
-//	public static void main(String[] args) {
-//		Gentil gentil = new Gentil("Le Gentil", 1000, 1000, 50);
-//		Alchimie alchimiste= new Alchimie("Chez le bon alchimiste");
-//		int res;
-//		Scanner scanner = new Scanner(System.in);
-//			do {
-//				alchimiste.menuInventaire(gentil);
-//				System.out.println("br");
-//				res=scanner.nextInt();
-//				System.out.println("ok");
-//			}while(res!=5);
-//		
-//	}
+
 }

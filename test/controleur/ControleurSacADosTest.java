@@ -79,6 +79,7 @@ class ControleurSacADosTest {
 		controleurSacADos.sacADosNonPlein(arme, gentil);
 		String nomArme=controleurSacADos.getArticle(gentil, controleurSacADos.emplacementDeLArme(gentil)).getNom();
 		assertEquals("Katana", nomArme);
+		
 		Article arme2 = new Article("Wakizashi", "arme", 900, 2500);
 		controleurSacADos.remplacerArme(arme2, gentil, 1);	//changement d'arme
 		String nomArme2=controleurSacADos.getArticle(gentil, controleurSacADos.emplacementDeLArme(gentil)).getNom();

@@ -2,7 +2,7 @@ package magasin;
 
 import personnage.Gentil;
 
-public class Magasin {
+public class Magasin implements Batiment{
 	private String nomMagasin;
 	private int nbArticleMaxInventaire=10;
 	private int nbArticle=0;
@@ -24,7 +24,7 @@ public class Magasin {
 
 	public void afficherInventaire() {
 		for(int i=0;i<nbArticle;i++) {
-			System.out.println(i+" - "+inventaire[i].getNom()+" ( type = "+inventaire[i].getType()+" | prix = "+inventaire[i].getPrix()+" )\n");
+			System.out.println(i+" - "+inventaire[i].getNom()+" ( effet = "+inventaire[i].getEffet()+" "+inventaire[i].effetSuffixe()+" | prix = "+inventaire[i].getPrix()+" )\n");
 		}
 	}
 
@@ -43,7 +43,6 @@ public class Magasin {
 
 	//getter
 	public Article getArticle(int emplacementArticle) {
-		System.out.println(inventaire[emplacementArticle].getNom());
 		return inventaire[emplacementArticle];
 	}
 

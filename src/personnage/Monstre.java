@@ -9,7 +9,7 @@ public class Monstre extends Antagoniste{
 
 	@Override
 	public void attaqueDeMechant(Gentil gentil) {
-		gentil.perdrePointDeVie(1000*this.getMechancete());		
+		gentil.perdrePointDeVie(50*this.getMechancete());		
 	}
 
 	

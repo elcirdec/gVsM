@@ -36,6 +36,23 @@ public class Article {
 		return nouvelleStat;
 	}
 
+	public String effetSuffixe() {
+		String suffixe="";
+		switch(this.type) {
+		case "arme":
+			suffixe="Atq";
+			break;
+		case "nourriture/boisson":
+			suffixe="PV";
+			break; 
+		case "potion":
+			suffixe="* Atq";
+			break;
+		default:
+			System.out.println("Erreur switch article");
+		}
+		return suffixe;
+	}
 	public boolean isArticleDejaUtiliser() {
 		return articleDejaUtiliser;
 	}
@@ -49,6 +66,10 @@ public class Article {
 	}
 	public int getPrix() {
 		return prix;
+	}
+
+	public int getEffet() {
+		return effet;
 	}
 
 	public void setArticleDejaUtiliser(boolean articleDejaUtiliser) {

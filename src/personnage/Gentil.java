@@ -54,7 +54,7 @@ public class Gentil extends Humain{
 		}
 
 		if( !(adversere.estVivant()) ) {	//si l'adversere est mort
-			System.out.println("Vous avez gagn� "+adversere.getNom()+" le mechant a perdu\n");
+			System.out.println("Vous avez gagn� "+adversere.getNom()+" a perdu\n");
 		}else if( !(this.estVivant()) ){
 			System.out.println("Vous etes mort");
 			gentilEstIlMort=true;					

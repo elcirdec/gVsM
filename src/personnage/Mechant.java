@@ -28,11 +28,11 @@ public class Mechant extends Antagoniste{
 			break;
 		case 4:
 			parler("Coups serieux!");
-			degats=500*this.getMechancete();
+			degats=50*this.getMechancete();
 			break;
 		case 5:
 			parler("Coups mega serieux!");
-			degats=1000*this.getMechancete();
+			degats=100*this.getMechancete();
 			break;
 		default:
 			System.out.println("Choix incorrect");

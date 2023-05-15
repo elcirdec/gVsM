@@ -74,6 +74,9 @@ public class BoundaryMenuJeu {
 				do {
 					finPartie=menuJeu(scanner);
 				}while (!finPartie);
+			}catch (Exception e) {
+				System.out.println("Ne saisir que des chiffres");
+				e.printStackTrace();
 			}
 		}
 

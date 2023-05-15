@@ -74,19 +74,19 @@ public class JFrameMenuAlchimiste extends JFrame {
 		JLabel lblNewLabel = new JLabel("Veuillez choisir un nombre entre 0 et 4 ou 5 pour quitter le Menu :");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
-		JLabel lblTravailler = new JLabel("0 - Potion Kilo good ( type = potion | prix = 100 )");
+		JLabel lblTravailler = new JLabel("0 - Potion Kilo good ( effet=Atq*2 | prix = 100 )");
 		lblTravailler.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
-		JLabel lblTravailler_1 = new JLabel("1 - Potion Mega good ( type = potion | prix = 200 )");
+		JLabel lblTravailler_1 = new JLabel("1 - Potion Mega good ( effet=Atq*4 | prix = 200 )");
 		lblTravailler_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
-		JLabel lblTravailler_2 = new JLabel("2 - Potion Giga good ( type = potion | prix = 400 )");
+		JLabel lblTravailler_2 = new JLabel("2 - Potion Giga good ( effet=Atq*8 | prix = 400 )");
 		lblTravailler_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
-		JLabel lblAller_1 = new JLabel("3 - Potion Tera good ( type = potion | prix = 800 )");
+		JLabel lblAller_1 = new JLabel("3 - Potion Tera good ( effet=Atq*16 | prix = 800 )");
 		lblAller_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
-		JLabel lblAller = new JLabel("4 - Potion Peta good ( type = potion | prix = 1600 )");
+		JLabel lblAller = new JLabel("4 - Potion Peta good ( effet=Atq*32 | prix = 1600 )");
 		lblAller.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
 		JLabel lblQuitter = new JLabel("5 - Quitter le Menu");

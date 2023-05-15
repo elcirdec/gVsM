@@ -1,6 +1,7 @@
 package dialogue;
 
 import java.awt.EventQueue;
+import java.util.Random;
 
 import javax.swing.JOptionPane;
 
@@ -22,7 +23,7 @@ import personnage.Mechant;
 import personnage.Monstre;
 
 public class DialogueJeu {
-
+ 
 	private JFrameMenuPrincipale jFrameJeu;
 	private JFrameMenuAlchimiste jFrameMenuAlchimiste;
 	private JFrameMenuArmurerie jFrameMenuArmurerie;
@@ -43,6 +44,7 @@ public class DialogueJeu {
 	private Armurerie armurerie = new Armurerie("Chez le bon armurier");
 
 	private boolean gentilEstIlMort=false;
+	private Random ran = new Random();
 
 	public void initDialog() {
 		//Create presentation frame
@@ -59,6 +61,9 @@ public class DialogueJeu {
 		jFrameMenuTaverne.setDialogue(this);
 		jFrameSacADos.setDialogue(this);
 
+		jFrameJeu.setPresentationPointDeVie(gentil.getPointDeVie());
+		jFrameJeu.setPresentationArgent(gentil.getArgent());
+		jFrameJeu.setPresentationAttaque(gentil.getAttaque());
 		jFrameJeu.setVisible(true);
 		jFrameMenuAlchimiste.setVisible(false);
 		jFrameMenuArmurerie.setVisible(false);
@@ -68,7 +73,7 @@ public class DialogueJeu {
 
 	public void eventChoixActionMenuPrincipale(int noAction) {
 
-		jFrameJeu.resetPresentation();
+		jFrameJeu.resetPresentation();		
 		if(noAction>6 || noAction<0) {
 			jFrameJeu.setPresentationChoixMenuErreur();
 		}else {
@@ -136,6 +141,17 @@ public class DialogueJeu {
 				System.out.println("Erreur reponse switch menuJeu");
 				break;
 			}
+			int valeurDes = 1+ran.nextInt(20);
+			if(valeurDes==20) {
+				gentilEstIlMort=controleurSeBattre.seBattre(gentil, monstre, 2); 
+				if(gentilEstIlMort) {
+					JOptionPane.showConfirmDialog(null,"Un monstre vous a attaque inopinément et vous etes mort","Monstre",
+							JOptionPane.DEFAULT_OPTION);
+				}else {
+					JOptionPane.showConfirmDialog(null,"Un monstre vous a attaque inopinément et vous avez Triomphé","Monstre",
+							JOptionPane.DEFAULT_OPTION);
+				}
+			}
 			if(gentilEstIlMort) {
 				jFrameJeu.dispose();
 			}
@@ -168,9 +184,16 @@ public class DialogueJeu {
 						JOptionPane.DEFAULT_OPTION);
 			}
 			controleurAcheterProduit.menuInventaire(gentil, taverne, noAction);
+			
+			jFrameJeu.setPresentationPointDeVie(gentil.getPointDeVie());
+			jFrameJeu.setPresentationArgent(gentil.getArgent());
+			jFrameJeu.setPresentationAttaque(gentil.getAttaque());
 			jFrameJeu.setVisible(true);
 			jFrameMenuTaverne.setVisible(false);
 		}else {
+			jFrameJeu.setPresentationPointDeVie(gentil.getPointDeVie());
+			jFrameJeu.setPresentationArgent(gentil.getArgent());
+			jFrameJeu.setPresentationAttaque(gentil.getAttaque());
 			jFrameJeu.setVisible(true);
 			jFrameMenuTaverne.setVisible(false);
 		}
@@ -178,7 +201,6 @@ public class DialogueJeu {
 	}
 
 	public void eventChoixActionMenuAlchimiste(int noAction) {
-		System.out.println(noAction);
 		jFrameMenuAlchimiste.resetPresentation();
 		if(noAction>5 || noAction<0) {
 			jFrameMenuAlchimiste.setPresentationChoixMenuErreur();
@@ -204,9 +226,15 @@ public class DialogueJeu {
 						JOptionPane.DEFAULT_OPTION);
 			}
 			controleurAcheterProduit.menuInventaire(gentil, alchimiste, noAction);
+			jFrameJeu.setPresentationPointDeVie(gentil.getPointDeVie());
+			jFrameJeu.setPresentationArgent(gentil.getArgent());
+			jFrameJeu.setPresentationAttaque(gentil.getAttaque());
 			jFrameJeu.setVisible(true);
 			jFrameMenuAlchimiste.setVisible(false);
 		}else {
+			jFrameJeu.setPresentationPointDeVie(gentil.getPointDeVie());
+			jFrameJeu.setPresentationArgent(gentil.getArgent());
+			jFrameJeu.setPresentationAttaque(gentil.getAttaque());
 			jFrameJeu.setVisible(true);
 			jFrameMenuAlchimiste.setVisible(false);
 		}
@@ -234,7 +262,7 @@ public class DialogueJeu {
 						int x = JOptionPane.showOptionDialog(null, "Votre sac a dos est plein, Sélectionner l'article que vous voulez supprimer",
 								"Sac a dos plein",
 								JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
-						System.out.println(x);
+		
 						controleurSacADos.sacADosPlein(article, gentil,x);
 					}
 				}else {
@@ -253,9 +281,15 @@ public class DialogueJeu {
 						JOptionPane.DEFAULT_OPTION);
 			}
 			controleurAcheterProduit.menuInventaire(gentil, armurerie, noAction);
+			jFrameJeu.setPresentationPointDeVie(gentil.getPointDeVie());
+			jFrameJeu.setPresentationArgent(gentil.getArgent());
+			jFrameJeu.setPresentationAttaque(gentil.getAttaque());
 			jFrameJeu.setVisible(true);
 			jFrameMenuArmurerie.setVisible(false);
 		}else {
+			jFrameJeu.setPresentationPointDeVie(gentil.getPointDeVie());
+			jFrameJeu.setPresentationArgent(gentil.getArgent());
+			jFrameJeu.setPresentationAttaque(gentil.getAttaque());
 			jFrameJeu.setVisible(true);
 			jFrameMenuArmurerie.setVisible(false);
 		}
@@ -276,10 +310,15 @@ public class DialogueJeu {
 				JOptionPane.showConfirmDialog(null,"Vous avez deja utiliser cet article","Pas de memoire",
 						JOptionPane.DEFAULT_OPTION);
 			}
-
+			jFrameJeu.setPresentationPointDeVie(gentil.getPointDeVie());
+			jFrameJeu.setPresentationArgent(gentil.getArgent());
+			jFrameJeu.setPresentationAttaque(gentil.getAttaque());
 			jFrameJeu.setVisible(true);
 			jFrameSacADos.setVisible(false);
 		}else {
+			jFrameJeu.setPresentationPointDeVie(gentil.getPointDeVie());
+			jFrameJeu.setPresentationArgent(gentil.getArgent());
+			jFrameJeu.setPresentationAttaque(gentil.getAttaque());
 			jFrameJeu.setVisible(true);
 			jFrameSacADos.setVisible(false);
 		}

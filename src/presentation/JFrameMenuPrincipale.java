@@ -41,6 +41,9 @@ public class JFrameMenuPrincipale extends JFrame {
 	private DialogueJeu dialogueJeu;
 	private JTextField textFieldChoixMenu;
 	private JLabel lblNewLabelErrorChoixMenu;
+	private JLabel lblNewLabelPointDeVie;
+	private JLabel lblNewLabelArgent;
+	private JLabel lblNewLabelAttaque;
 
 	/**
 	 * Create the frame.
@@ -112,6 +115,24 @@ public class JFrameMenuPrincipale extends JFrame {
 		lblNewLabelErrorChoixMenu = new JLabel("");
 		lblNewLabelErrorChoixMenu.setForeground(new Color(255, 0, 0));
 		lblNewLabelErrorChoixMenu.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		
+		JLabel lblNewLabel_2 = new JLabel("Point de vie :");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		
+		lblNewLabelPointDeVie = new JLabel("");
+		lblNewLabelPointDeVie.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		
+		JLabel lblNewLabel_2_1 = new JLabel("Argent :");
+		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		
+		lblNewLabelArgent = new JLabel("");
+		lblNewLabelArgent.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		
+		JLabel lblNewLabel_2_3 = new JLabel("Attaque :");
+		lblNewLabel_2_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		
+		lblNewLabelAttaque = new JLabel("");
+		lblNewLabelAttaque.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -141,39 +162,67 @@ public class JFrameMenuPrincipale extends JFrame {
 											.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE))))
 								.addGroup(gl_panel.createSequentialGroup()
 									.addGap(87)
-									.addComponent(lblNewLabelErrorChoixMenu, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE)))))
+									.addComponent(lblNewLabelErrorChoixMenu, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl_panel.createSequentialGroup()
+									.addGap(98)
+									.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+										.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 127, GroupLayout.PREFERRED_SIZE)
+										.addComponent(lblNewLabel_2_1, GroupLayout.PREFERRED_SIZE, 127, GroupLayout.PREFERRED_SIZE)
+										.addComponent(lblNewLabel_2_3, GroupLayout.PREFERRED_SIZE, 127, GroupLayout.PREFERRED_SIZE))
+									.addGap(30)
+									.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+										.addComponent(lblNewLabelAttaque, GroupLayout.PREFERRED_SIZE, 127, GroupLayout.PREFERRED_SIZE)
+										.addComponent(lblNewLabelArgent, GroupLayout.PREFERRED_SIZE, 127, GroupLayout.PREFERRED_SIZE)
+										.addComponent(lblNewLabelPointDeVie, GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE))))))
 					.addContainerGap(51, Short.MAX_VALUE))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(25)
-					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_panel.createSequentialGroup()
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(lblTravailler)
+							.addGap(25)
+							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
+							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_panel.createSequentialGroup()
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+										.addComponent(lblTravailler)
+										.addComponent(lblNewLabel_2)))
+								.addGroup(gl_panel.createSequentialGroup()
+									.addGap(11)
+									.addComponent(lblNewLabelPointDeVie, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
 							.addGap(13)
-							.addComponent(lblTravailler_1)
+							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_panel.createSequentialGroup()
+									.addComponent(lblTravailler_1)
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addComponent(lblTravailler_2, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addComponent(lblAller_1, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addComponent(lblAller)
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addComponent(lblUtiliser))
+								.addGroup(gl_panel.createSequentialGroup()
+									.addComponent(lblNewLabel_2_1, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+										.addComponent(lblNewLabel_2_3, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+										.addComponent(lblNewLabelAttaque, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+									.addGap(73)
+									.addComponent(lblNewLabelErrorChoixMenu, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))
 							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(lblTravailler_2, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+							.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+								.addComponent(lblQuitter)
+								.addComponent(lblNewLabel_1))
 							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(lblAller_1, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(lblAller)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(lblUtiliser))
+							.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+								.addComponent(textFieldChoixMenu, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)))
 						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(183)
-							.addComponent(lblNewLabelErrorChoixMenu, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblQuitter)
-						.addComponent(lblNewLabel_1))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textFieldChoixMenu, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+							.addGap(119)
+							.addComponent(lblNewLabelArgent, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap(50, Short.MAX_VALUE))
 		);
 		panel.setLayout(gl_panel);
@@ -191,7 +240,15 @@ public class JFrameMenuPrincipale extends JFrame {
 		lblNewLabelErrorChoixMenu.setText("Chiffre entre 0 et 6");
 		textFieldChoixMenu.setText("");
 	}
-	
+	public void setPresentationPointDeVie(int nbArticle) {
+		lblNewLabelPointDeVie.setText(Integer.toString(nbArticle));
+	}
+	public void setPresentationArgent(int nbArticle) {
+		lblNewLabelArgent.setText(Integer.toString(nbArticle));
+	}
+	public void setPresentationAttaque(int nbArticle) {
+		lblNewLabelAttaque.setText(Integer.toString(nbArticle));
+	}
 	
 //Record reference to Dialogue
 	

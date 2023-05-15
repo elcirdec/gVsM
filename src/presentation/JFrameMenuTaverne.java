@@ -74,22 +74,22 @@ public class JFrameMenuTaverne extends JFrame {
 		JLabel lblNewLabel = new JLabel("Veuillez choisir un nombre entre 0 et 5 ou 6 pour quitter le Menu :");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
-		JLabel lblTravailler = new JLabel("0 - McDo ( type = nourriture/boisson | prix = 500 )");
+		JLabel lblTravailler = new JLabel("0 - McDo ( effet=-1000 PV | prix = 500 )");
 		lblTravailler.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
-		JLabel lblTravailler_1 = new JLabel("1 - Pate ( type = nourriture/boisson | prix = 100 )");
+		JLabel lblTravailler_1 = new JLabel("1 - Pate ( effet=+500 PV | prix = 100 )");
 		lblTravailler_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
-		JLabel lblTravailler_2 = new JLabel("2 - Riz ( type = nourriture/boisson | prix = 200 )");
+		JLabel lblTravailler_2 = new JLabel("2 - Riz ( effet=+1500 PV | prix = 200 )");
 		lblTravailler_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
-		JLabel lblAller_1 = new JLabel("3 - Raclette ( type = nourriture/boisson | prix = 500 )");
+		JLabel lblAller_1 = new JLabel("3 - Raclette ( effet=+3000 PV PV | prix = 500 )");
 		lblAller_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
-		JLabel lblAller = new JLabel("4 - Champagne ( type = nourriture/boisson | prix = 1000 )");
+		JLabel lblAller = new JLabel("4 - Champagne ( effet=+5000 PV | prix = 1000 )");
 		lblAller.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
-		JLabel lblUtiliser = new JLabel("5 - Ramen ( type = nourriture/boisson | prix = 5000 )");
+		JLabel lblUtiliser = new JLabel("5 - Ramen ( effet=+10 000 PV | prix = 5000 )");
 		lblUtiliser.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
 		JLabel lblQuitter = new JLabel("6 - Quitter le Menu");
